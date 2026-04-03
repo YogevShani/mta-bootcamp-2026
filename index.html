@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTA Computer Science Bootcamp 2026</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #0099A8, #004f57);
+            margin: 0;
+            padding: 30px;
+            color: #333;
+        }
+
+        /* header */
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        header img {
+            width: 120px;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 28px;
+            margin: 10px 0;
+        }
+
+        /* section cards */
+
+        section {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        section:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+        }
+
+        /* flex sections */
+
+        .flex-section {
+            display: flex;
+            align-items: center;
+        }
+
+        /* icons */
+
+        section img {
+            width: 90px;
+            height: auto;
+            margin-right: 20px;
+        }
+
+        /* titles */
+
+        h2 {
+            margin-top: 0;
+            color: #0099A8;
+        }
+
+        /* text */
+
+        p {
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* links */
+
+        a {
+            color: #0077cc;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: #ff6a00;
+        }
+
+        /* buttons */
+
+        button {
+            background: linear-gradient(135deg, #0099A8, #007580);
+            border: none;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #00c3d6, #0099A8);
+            transform: scale(1.05);
+        }
+
+        /* key display */
+
+        #key-display {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            background: #f4f6f8;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            display: none;
+        }
+
+        /* agenda */
+
+        ul {
+            padding-left: 20px;
+        }
+
+        ul li {
+            margin-bottom: 6px;
+        }
+
+        /* reflection highlight */
+
+        section:last-child {
+            background: linear-gradient(135deg, #fdfdfd, #eaf9fb);
+            border: 2px solid #0099A8;
+        }
+    </style>
+
+    <script>
+        const API_URL = 'https://4alvxv4f3jbbrxyaz7imx7phve0uzywl.lambda-url.us-east-1.on.aws/';
+
+        function getOpenAIKey_() {
+            var password = prompt("Please enter the password:");
+            if (password !== null) {
+                fetch('https://7nbukne4nbzpost7hpde22de3i0dxjpj.lambda-url.us-east-1.on.aws/?password=' + encodeURIComponent(password))
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('key-display').textContent = data.key;
+                        document.getElementById('key-display').style.display = 'block';
+                    })
+                    .catch(error => {
+                        document.getElementById('key-display').textContent = 'Error fetching key';
+                        document.getElementById('key-display').style.display = 'block';
+                    });
+            }
+        }
+
+        function getOpenAIKey() {
+            var password = prompt("Please enter the password:");
+            if (password !== null) {
+                fetch(API_URL + '?password=' + encodeURIComponent(password))
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('key-display').textContent = data.key;
+                        document.getElementById('key-display').style.display = 'block';
+                        navigator.clipboard.writeText(data.key).then(function () {
+                            alert('Key copied to clipboard!');
+                        }, function (err) {
+                            alert('Failed to copy key to clipboard.');
+                        });
+                    })
+                    .catch(error => {
+                        document.getElementById('key-display').textContent = 'Error fetching key';
+                        document.getElementById('key-display').style.display = 'block';
+                    });
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <img src="./png/logo.png" alt="MTA Computer Science Logo">
+        <h1>MTA Computer Science Bootcamp 2026 — Open AI APIs, Cloud & AWS</h1>
+    </header>
+
+    <section>
+        <h2>Bootcamp Agenda</h2>
+        <ul>
+            <li><strong>09:00–10:00:</strong> Welcome, AWS Lab Setup, GitHub Copilot</li>
+            <li><strong>10:00–11:00:</strong> Cloud & AWS Concepts</li>
+            <li><strong>11:00–12:00:</strong> AWS Lambda, Amplify & DynamoDB</li>
+            <li><strong>12:00–13:00:</strong> Open AI APIs</li>
+            <li><strong>13:00–15:00:</strong> Final Chatbot Project</li>
+            <li><strong>16:00–16:30:</strong> Amazon Q</li>
+            <li><strong>16:30–17:00:</strong> Wrap-up, reflection</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Resources</h2>
+        <ul>
+            <li><a href="./pdf/AWS Academy Learner Lab - Student Guide.pdf" target="_blank">AWS Academy Learner Lab -
+                    Student Guide</a></li>
+            <li><a href="./pdf/Cloud-Concepts-And-AWS.pdf" target="_blank">Cloud Concepts & AWS</a></li>
+            <li><a href="./pdf/Google Colab.pdf" target="_blank">Google Colab</a></li>
+            <li><a href="./pdf/OpenAI APIs 101.pdf" target="_blank">Open AI API</a></li>
+        </ul>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/awsacademy.png">
+        <div>
+            <h2>Prerequisite: <a href="https://www.awsacademy.com/vforcesite/LMS_Login" target="_blank">AWS Academy
+                    Learner Lab</a></h2>
+            <p>Login to AWS Academy Learner Lab.</p>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/colab.png">
+        <div>
+            <h2>Prerequisite: <a
+                    href="https://colab.research.google.com/github/YogevShani/mta-bootcamp-2026/blob/main/ColabTestPage.ipynb"
+                    target="_blank">ColabTestPage</a></h2>
+            <p>Login to Google Colab and execute python code.</p>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/open-ai-key.png">
+        <div>
+            <h2>Prerequisite: Retrieve Open AI Key</h2>
+            <p>Call AWS Lambda function to get Open AI Key.</p>
+            <button onclick="getOpenAIKey()">Get KEY</button>
+            <div id="key-display"></div>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/aws-lambda.png">
+        <div>
+            <h2>Demo 1: <a href="./pdf/Lab - AWS Lambda.pdf" target="_blank">AWS Lambda, Python based</a></h2>
+            <p>Write and deploy AWS Lambda function.</p>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/aws-amplify.png">
+        <div>
+            <h2>Demo 2: <a href="./pdf/Lab - Host a static website using AWS Amplify.pdf" target="_blank">Host a web page</a>
+            </h2>
+            <p>Host a static website using AWS Amplify.</p>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/DynamoDB.png">
+        <div>
+            <h2>Demo 3: <a href="./pdf/Lab - DynamoDB.pdf" target="_blank">DynamoDB</a></h2>
+            <p>Create non SQL DB using DynamoDB.</p>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/open-ai-api.png">
+        <div>
+            <h2>Lab 1: <a
+                    href="https://colab.research.google.com/github/YogevShani/mta-bootcamp-2026/blob/main/open_ai_chat.ipynb"
+                    target="_blank">open_ai_chat</a></h2>
+            <p>Basic Python Chat using Open AI Chat Completion API.</p>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/open-ai-api.png">
+        <div>
+            <h2>Lab 2: <a
+                    href="https://colab.research.google.com/github/YogevShani/mta-bootcamp-2026/blob/main/open_ai_pizza_chat_functions.ipynb"
+                    target="_blank">open_ai_pizza_chat_functions</a></h2>
+            <p>Python Pizza Chat using Function calling.</p>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/chat.png">
+        <div>
+            <h2>Project: <a href="./pdf/Lab - Open AI Lambda Function - POST.pdf" target="_blank">Chat Bot</a></h2>
+            <p>ChatBot development using OPEN AI API & AWS Services - AWS Lambda, DynamoDB & AWS Amplify.</p>
+            <a href="https://staging.diwtzlr3ict3z.amplifyapp.com/" target="_blank">Sample Chat Bot</a>
+            <li><a href="openai-2.24.0-layer-python-12.zip" target="_blank">Download: openai-2.24.0-layer-python-12.zip</a></li>
+        </div>
+    </section>
+
+    <section class="flex-section">
+        <img src="./png/amazon-q.png">
+        <div>
+            <h2>Demo 5: <a href="https://aws.amazon.com/q/developer/" target="_blank">Amazon Q Developer</a></h2>
+            <p>Amazon Q Developer.</p>
+        </div>
+    </section>
+
+    <!--
+    <section class="flex-section">
+        <img src="./png/amazon-cognito.png">
+        <div>
+            <h2>Demo 4: <a href="./pdf/Lab - cognito.pdf" target="_blank">AWS Cognito</a></h2>
+            <p>Create user management with AWS Cognito.</p>
+        </div>
+    </section>
+    -->
+
+    <!--
+    <section class="flex-section">
+        <img src="./png/S3.png">
+        <div>
+            <h2>Demo 5: <a href="./pdf/Lab - S3.pdf" target="_blank">Amazon S3</a></h2>
+            <p>Amazon Simple Storage Service.</p>
+        </div>
+    </section>
+    -->
+
+    <section class="flex-section">
+        <img src="./png/reflection.png">
+        <div>
+            <h2>Bootcamp Reflection</h2>
+            <p>We'd love to hear your thoughts on the bootcamp! Please take 2 minutes to share your feedback.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1xqjRq7OlanRm2smIO9KKLMSmYLjMNIOJdjy6-JsD7n0wfA/viewform?usp=header"
+                target="_blank">Fill Reflection Form</a>
+        </div>
+    </section>
+
+
+</body>
+
+</html>
