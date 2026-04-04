@@ -22,6 +22,14 @@ Live Bootcamp Site
 </a>
 </p>
 
+<h2>🎬 Bootcamp Promo</h2>
+
+<p align="center">
+  <video width="800" controls>
+    <source src="https://yogevshani.github.io/mta-bootcamp-2026/bootcamp-video.mp4" type="video/mp4">
+  </video>
+</p>
+
 <hr/>
 
 <h2>🎯 What You Will Build</h2>
