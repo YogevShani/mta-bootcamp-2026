@@ -16,15 +16,6 @@ Live Bootcamp Site
 <h2>🎬 Bootcamp Promo</h2>
 
 <p align="center">
-<!-- Replace VIDEO_URL_HERE with your actual video link -->
-<a href="VIDEO_URL_HERE" target="_blank">
-▶️ Watch the Bootcamp Promo Video
-</a>
-</p>
-
-<h2>🎬 Bootcamp Promo</h2>
-
-<p align="center">
   <a href="https://yogevshani.github.io/mta-bootcamp-2026/bootcamp-video.mp4" target="_blank">
     ▶️ Watch Bootcamp Promo Video
   </a>
