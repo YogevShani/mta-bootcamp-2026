@@ -137,6 +137,23 @@
             background: linear-gradient(135deg, #fdfdfd, #eaf9fb);
             border: 2px solid #0099A8;
         }
+
+        /* Promo video styling */
+        .promo-video {
+            max-width: 900px;
+            margin: 16px auto 28px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            background: #000;
+        }
+        .promo-video video {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+
     </style>
 
     <script>
@@ -188,6 +205,13 @@
         <img src="./png/logo.png" alt="MTA Computer Science Logo">
         <h1>MTA Computer Science Bootcamp 2026 — Open AI APIs, Cloud & AWS</h1>
     </header>
+
+    <div class="promo-video">
+        <video controls preload="metadata" playsinline>
+            <source src="https://yogevshani.github.io/mta-bootcamp-2026/bootcamp-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
     <section>
         <h2>Bootcamp Agenda</h2>
